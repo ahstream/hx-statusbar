@@ -11,7 +11,6 @@
     "build": "webpack --config webpack/webpack.prod.js",
     "build:publish": "npm run patch && npm run build && npm run publish",
     "patch": "npm version patch",
-    "publish": "npm publish --access public",
     "clean": "rm -rf node_modules",
     "clean:install": "npm run clean && npm install",
     "test": "jest",
