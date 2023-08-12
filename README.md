@@ -3,7 +3,6 @@
 ## Develop & Test
 
 ```
-// Will open http://localhost:8080/ with test page using src/example.js
 
 yarn dev
 ```
@@ -11,15 +10,12 @@ yarn dev
 ## Create NPM package
 
 ```
-yarn publish
+npm install
+npm run dev
 
-// From scratch
-
-yarn build
 npm login
+npm run build:publish
 npm publish --access public
-
-//
 ```
 
 ## Consume NPM package
