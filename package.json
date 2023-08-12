@@ -7,9 +7,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "webpack serve --open --config webpack/webpack.dev.js",
-    "dev:new": "npm run clean:install && npm run dev",
     "build": "webpack --config webpack/webpack.prod.js",
-    "build:publish": "npm run patch && npm run build && npm run publish",
+    "build:publish": "npm run build && npm run patch && npm publish --access public",
     "patch": "npm version patch",
     "clean": "rm -rf node_modules",
     "clean:install": "npm run clean && npm install",
