@@ -8,8 +8,7 @@
   "scripts": {
     "dev": "webpack serve --open --config webpack/webpack.dev.js",
     "build": "webpack --config webpack/webpack.prod.js",
-    "build:publish": "npm run build && npm run patch && npm publish --access public",
-    "patch": "npm version patch",
+    "build:publish": "npm run build && npm version patch && npm publish --access public",
     "clean": "rm -rf node_modules",
     "clean:install": "npm run clean && npm install",
     "test": "jest",
@@ -34,8 +33,6 @@
     "mini-css-extract-plugin": "^2.7.6",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "prettier": "^2.7.1",
-    "sass": "^1.64.2",
-    "sass-loader": "^13.3.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
