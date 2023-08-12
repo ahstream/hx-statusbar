@@ -26,49 +26,14 @@
   --btn-disabled-border-color: rgba(27, 31, 35, 0.15);
 }
 
-/*
-.hx-statusbar {
-  color: var(--default-color);
-  background-color: var(--default-background-color);
-  width: 100%;
-  height: auto;
-  position: absolute;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 9999;
-  overflow: auto;
-  opacity: 1;
-  transition: opacity 0.5s;
-  border-bottom: 1px solid white;
-  font-weight: 500;
-  font-size: 16px;
-}
-
-.hx-statusbar > .left {
-  float: left;
-  border: 0;
-  padding: 8px 0;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-.hx-statusbar > .right {
-  float: right;
-  border: 0;
-  padding: 0;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-*/
-
 .hx-statusbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* flex-flow: nowrap; */
   flex-wrap: nowrap;
-  background-color: #bbdefb;
+  color: var(--default-color);
+  background-color: var(--default-background-color);
   padding: 5px 7px;
   gap: 5px;
 }
