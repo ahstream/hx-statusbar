@@ -2,7 +2,7 @@ import './main.css';
 
 // replace addText/addSubText/addButtons/setButtons in consumers
 
-export function createStatusbar(initialText, { buttons = [], hiddenTime = 3000, css = {} }) {
+export function createStatusbar(initialText, { buttons = [], hiddenTime = 3000, css = {} } = {}) {
   let _lastText;
   let _lastSubtext = '';
   const _history = [];
@@ -20,7 +20,7 @@ export function createStatusbar(initialText, { buttons = [], hiddenTime = 3000, 
       .reverse()
       .join('\n');
     const fullText = text + (_lastSubtext?.length ? ` (${_lastSubtext})` : '');
-    document.getElementById('hx-statusbar-text').innerText = fullText;
+    document.getElementById('hx-statusbar-left').innerText = fullText;
     if (className) {
       _statusbar.className = `hx-statusbar ${className}`;
     }
@@ -29,7 +29,7 @@ export function createStatusbar(initialText, { buttons = [], hiddenTime = 3000, 
   function addSubtext(text) {
     _lastSubtext = text;
     const fullText = _lastText + (text?.length ? ` (${text})` : '');
-    document.getElementById('hx-statusbar-text').innerText = fullText;
+    document.getElementById('hx-statusbar-left').innerText = fullText;
   }
 
   function addHistory(text) {
@@ -46,7 +46,7 @@ export function createStatusbar(initialText, { buttons = [], hiddenTime = 3000, 
     warn: (str) => addText(str, 'warn'),
     error: (str) => addText(str, 'error'),
     buttons: (btns) => {
-      document.getElementById('statusbar-right').replaceChildren(...btns);
+      document.getElementById('hx-statusbar-right').replaceChildren(...btns);
     },
   };
 }
@@ -69,14 +69,10 @@ function create(buttons, hiddenTime) {
   statusbar.className = 'hx-statusbar';
 
   const leftContainer = document.createElement('div');
-  leftContainer.className = 'left';
-
-  const leftTextContainer = document.createElement('span');
-  leftTextContainer.id = 'hx-statusbar-text';
-  leftContainer.append(leftTextContainer);
+  leftContainer.id = 'hx-statusbar-left';
 
   const rightContainer = document.createElement('div');
-  rightContainer.className = 'right';
+  rightContainer.id = 'hx-statusbar-right';
   buttons.forEach((button) => {
     rightContainer.append(button);
   });

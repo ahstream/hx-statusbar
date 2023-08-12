@@ -2,11 +2,15 @@ const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    example: './src/example.js',
+  },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../', 'dist'),
     clean: true,
     globalObject: 'this',
@@ -28,7 +32,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ESLintPlugin(), new NodePolyfillPlugin(), new MiniCssExtractPlugin({ filename: 'main.css' })],
+  plugins: [new HtmlWebpackPlugin(), new ESLintPlugin(), new NodePolyfillPlugin(), new MiniCssExtractPlugin({ filename: 'main.css' })],
   resolve: {
     extensions: ['.js'],
     fallback: {

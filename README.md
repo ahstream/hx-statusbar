@@ -1,14 +1,25 @@
 # README
 
+## Develop & Test
+
+```
+// Will open http://localhost:8080/ with test page using src/example.js
+
+yarn dev
+```
+
 ## Create NPM package
 
 ```
-yarn build:new
-npm link
-npm link @ahstream/hx-statusbar
+yarn publish
 
+// From scratch
+
+yarn build
 npm login
 npm publish --access public
+
+//
 ```
 
 ## Consume NPM package

@@ -1,6 +1,6 @@
-import { createStatusbar } from '../dist/index';
+import { createStatusbar } from './index';
 
-import '../dist/main.css';
+import './main.css';
 
 const statusbar = createStatusbar('Statusbar Template Text', {
   css: {
@@ -8,6 +8,8 @@ const statusbar = createStatusbar('Statusbar Template Text', {
   },
   buttons: createButtons(),
 });
+
+statusbar.buttons(createButtons());
 
 setTimeout(() => statusbar.text('Text'), 1000);
 setTimeout(() => statusbar.info('Info'), 2000);
