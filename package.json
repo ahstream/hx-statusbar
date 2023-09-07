@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "webpack serve --open --config webpack/webpack.dev.js",
+    "dev": "webpack --watch --config webpack/webpack.dev.js",
     "build": "webpack --config webpack/webpack.prod.js",
     "build:publish": "npm run build && npm version patch && npm publish --access public",
     "clean": "rm -rf node_modules",
