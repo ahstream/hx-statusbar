@@ -1,8 +1,7 @@
 {
-  "name": "@ahstream/hx-statusbar",
+  "name": "hx-statusbar",
   "version": "1.0.18",
   "description": "Statusbar element on top of webpage",
-  "author": "hstream@gmail.com",
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "scripts": {
