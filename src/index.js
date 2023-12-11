@@ -46,9 +46,7 @@ export function createStatusbar(initialText, { buttons = [], hiddenTime = 3000, 
     warn: (str) => addText(str, 'warn'),
     error: (str) => addText(str, 'error'),
     buttons: (btns) => {
-      console.log('add buttons:', btns);
       document.getElementById('hx-statusbar-right').replaceChildren(...btns);
-      console.log('getElementById:', document.getElementById('hx-statusbar-right'));
     },
   };
 }
@@ -59,7 +57,6 @@ function addCss(css) {
   }
   for (var prop in css) {
     if (Object.prototype.hasOwnProperty.call(css, prop)) {
-      console.log(`Set: --${prop}: ${css[prop]}`);
       document.documentElement.style.setProperty(`--${prop}`, css[prop]);
     }
   }
