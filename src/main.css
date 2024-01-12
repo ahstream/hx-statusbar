@@ -40,6 +40,7 @@
 
 .hx-statusbar.hidden {
   opacity: 0;
+  display: none;
 }
 
 .hx-statusbar.info {
@@ -103,4 +104,9 @@
   color: var(--btn-disabled-color);
   background-color: var(--btn-disabled-background-color);
   border-color: var(--btn-disabled-border-color);
+}
+
+li.error {
+  background-color: yellow;
+  color: red;
 }

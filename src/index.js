@@ -2,11 +2,11 @@ import './main.css';
 
 // replace addText/addSubText/addButtons/setButtons in consumers
 
-export function createStatusbar(initialText, { buttons = [], hiddenTime = 3000, css = {} } = {}) {
+export function createStatusbar(initialText, { buttons = [], hideTimeShort = 6000, hideTimeLong = 60000, css = {} } = {}) {
   let _lastText;
   let _lastSubtext = '';
   const _history = [];
-  const _statusbar = create(buttons, hiddenTime);
+  const _statusbar = create(buttons, hideTimeShort, hideTimeLong);
 
   mount(_statusbar);
   addCss(css);
@@ -62,7 +62,7 @@ function addCss(css) {
   }
 }
 
-function create(buttons, hiddenTime) {
+function create(buttons, hideTimeShort, hideTimeLong) {
   const statusbar = document.createElement('div');
   statusbar.id = 'hx-statusbar';
   statusbar.className = 'hx-statusbar';
@@ -79,16 +79,18 @@ function create(buttons, hiddenTime) {
   statusbar.append(leftContainer);
   statusbar.append(rightContainer);
 
-  statusbar.addEventListener('click', (event) => {
+  leftContainer.addEventListener('click', (event) => {
+    console.log('event', event);
     if (event.target.tagName === 'BUTTON') {
       // Let through clicks on buttons
       return;
     }
+    const timeToHide = event.ctrlKey || event.shiftKey ? hideTimeLong : hideTimeShort;
     // Hide statusbar on clicks on non-buttons
     statusbar.classList.toggle('hidden');
     setTimeout(() => {
       statusbar.classList.toggle('hidden');
-    }, hiddenTime);
+    }, timeToHide);
   });
 
   return statusbar;
