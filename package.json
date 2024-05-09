@@ -1,6 +1,6 @@
 {
   "name": "hx-statusbar",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Statusbar element on top of webpage",
   "license": "UNLICENSED",
   "main": "dist/index.js",
