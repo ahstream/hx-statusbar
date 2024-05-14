@@ -12,9 +12,12 @@ export function createStatusbar(initialText, { buttons2 = [], hideTimeShort = 60
   addCss(css);
   addText(initialText);
 
-  function addText(text, className = null) {
+  function addText(text, className = null, logToConsole = true) {
     _lastText = text;
     addHistory(text);
+    if (logToConsole) {
+      console.log(text);
+    }
     _statusbar.title = _history
       .map((x) => `${x.text} [${x.date.toLocaleTimeString()}]`)
       .reverse()
@@ -46,6 +49,8 @@ export function createStatusbar(initialText, { buttons2 = [], hideTimeShort = 60
     text: (str, className) => addText(str, className),
     subtext: (str) => addSubtext(str),
     info: (str) => addText(str, 'info'),
+    mid: (str) => addText(str, 'info'),
+    sub: (str) => addText(str, 'info'),
     ok: (str) => addText(str, 'ok'),
     warn: (str) => addText(str, 'warn'),
     error: (str) => addText(str, 'error'),
