@@ -84,8 +84,11 @@ function addCss(css) {
   }
 }
 
-function createButton({ text, title, disabled, handler }) {
+function createButton({ text, title, disabled, handler, id }) {
   const btn = document.createElement('button');
+  if (id) {
+    btn.id = id;
+  }
   btn.innerText = text;
   btn.title = title;
   btn.disabled = !!disabled;
